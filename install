@@ -1,0 +1,41 @@
+
+   if command -v devl >/dev/null 2>&1; then
+      read -p "devl is already installed, re-install? (y/n) " -n 1 -r
+      if [[ $REPLY =~ ^[Nn]$ ]]; then
+         exit
+      fi
+   fi
+
+
+
+   if command -v node >/dev/null 2>&1; then
+      if command -v zypper >/dev/null 2>&1; then
+         sudo zypper in nodejs
+      elif command -v apt-get >/dev/null 2>&1; then
+         sudo apt-get install nodejs
+      fi
+   fi
+
+
+
+   if command -v git >/dev/null 2>&1; then
+      if command -v zypper >/dev/null 2>&1; then
+         sudo zypper in git
+      elif command -v apt-get >/dev/null 2>&1; then
+         sudo apt-get install git
+      fi
+   fi
+
+
+
+   if [ -d /opt/devl ] ; then
+      rm -rf /opt/devl
+   fi
+
+
+   mkdir /opt/devl
+   git clone https://github.com/CharlSteynberg/devl.git /opt/devl
+   ln -sf /opt/devl/bin/run/devl /usr/bin/devl
+
+
+   echo "Done :: devl was installed successfully";
