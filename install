@@ -50,7 +50,7 @@
 
    sudo mkdir /opt/devl
    sudo git clone https://github.com/CharlSteynberg/devl.git /opt/devl
-   sudo ln -sf /opt/devl/bin/init/devl /usr/bin/devl
+   sudo ln -sf /opt/devl/.../api/devl /usr/bin/devl
    sudo chown -R "$inst_cusr" /opt/devl
    sudo chgrp -R users /opt/devl
 
@@ -58,4 +58,6 @@
 
    if [ -h /usr/bin/devl ] ; then
       echo "Done :: devl was installed successfully"
+   else
+      echo "Fail :: devl was not installed correctly"
    fi

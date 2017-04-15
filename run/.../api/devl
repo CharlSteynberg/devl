@@ -1,0 +1,8 @@
+#!/usr/bin/node
+
+   const CWD = '/opt/devl';
+   process.chdir(CWD);
+
+   require(CWD+'/lib/abec/able.lib.js');
+
+   Import('/api/dmon/boot.api.js');
