@@ -1,4 +1,3 @@
 #!/usr/bin/node
 
-   process.chdir('../');
-   require('./api/dmon/boot.api.js');
+   require('/opt/devl/api/dmon/boot.api.js');
